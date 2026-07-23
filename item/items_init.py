@@ -61,7 +61,7 @@ def create_items(world: FabricMinecraftWorld):
     total_items = add_optional_items_to_pool(world, "Dyes", "Progressive Dye Recipes", 2, total_items)
 
     # Ruby Hunt Items
-    if world.options.goal_condition.value == 4:
+    if world.options.goal_condition.value == 1:
         world.max_ruby_count = min(world.options.total_rubies.value, total_items)
         total_items = add_items_to_pool(world, "Ruby", world.max_ruby_count, total_items)
 

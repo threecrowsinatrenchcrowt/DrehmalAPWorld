@@ -17,7 +17,7 @@ def create_vanilla_advancement_regions(world: FabricMinecraftWorld):
     create_locations_and_connect(world, "Menu", "MenuVanillaAdvancements", {
         "How Did We Get Here?": ADVANCEMENT_UNREASONABLE,
         "A Furious Cocktail": ADVANCEMENT_UNREASONABLE,
-        "Arbalistic": ADVANCEMENT_HARD,
+        "Arbalistic": ADVANCEMENT_UNREASONABLE,
         "The Cutest Predator": ADVANCEMENT,
         "A Balanced Diet": ADVANCEMENT_HARD,
         "Two by Two": ADVANCEMENT_UNREASONABLE,
@@ -88,16 +88,16 @@ def create_vanilla_advancement_regions(world: FabricMinecraftWorld):
     smart_add_rule(world, "How Did We Get Here?", OPEN_WORLD & CAN_BREW & HARD_COMBAT_MANUAL_LOCK, ADVANCEMENT_UNREASONABLE)
     smart_add_rule(world, "A Furious Cocktail", OPEN_WORLD & CAN_BREW & HARD_COMBAT_MANUAL_LOCK, ADVANCEMENT_UNREASONABLE)
     
-    smart_add_rule(world, "Arbalistic", CRAFT_CROSSBOW & CAN_ENCHANT, ADVANCEMENT_HARD)
+    smart_add_rule(world, "Arbalistic", CRAFT_CROSSBOW & CAN_ENCHANT, ADVANCEMENT_UNREASONABLE)
     smart_add_rule(world, "The Cutest Predator", CRAFT_BUCKET & BLACK_JUNGLE, ADVANCEMENT)
     # there's probably more subtle logic I could add for this, but according to the discord, the only enchanted golden apple is in Merijool, so this is fine for now
-    smart_add_rule(world, "A Balanced Diet", MERIJOOL & CAN_SMELT, ADVANCEMENT_HARD)
+    smart_add_rule(world, "A Balanced Diet", OPEN_WORLD & CAN_SMELT, ADVANCEMENT_HARD)
     smart_add_rule(world, "Two by Two", OPEN_WORLD, ADVANCEMENT_UNREASONABLE)
     # Parrots and the Bats is always sphere 1
     smart_add_rule(world, "Alchemy", CAN_BREW, ADVANCEMENT)
     smart_add_rule(world, "Bullseye", CRAFT_BOW, ADVANCEMENT)
     smart_add_rule(world, "A Complete Catalogue", OPEN_WORLD, ADVANCEMENT_UNREASONABLE)
-    smart_add_rule(world, "Bring Home the Asterial Array", CAN_SUMMON_WITHER, ADVANCEMENT_HARD)
+    smart_add_rule(world, "Bring Home the Asterial Array", CAN_SUMMON_WITHER & HARD_COMBAT_MANUAL_LOCK, ADVANCEMENT_HARD)
     smart_add_rule(world, "Asterial Arrayinator", CAN_SUMMON_WITHER & OPEN_WORLD & CRAFT_IRON_TOOLS, ADVANCEMENT_UNREASONABLE)
     smart_add_rule(world, "Necromantic Reversal", CAN_BREW, ADVANCEMENT_HARD)
     smart_add_rule(world, "Oh Shiny", CAN_BARTER, ADVANCEMENT)
@@ -123,19 +123,19 @@ def create_vanilla_advancement_regions(world: FabricMinecraftWorld):
     smart_add_rule(world, "Total Beelocation", AKHLO_ROHMA & CAN_ENCHANT, ADVANCEMENT_HARD)
     smart_add_rule(world, "Sweet Dreams", CAN_SLEEP, ADVANCEMENT)
     smart_add_rule(world, "Sniper Duel", CRAFT_BOW, ADVANCEMENT_HARD)
-    smart_add_rule(world, "Is It a Plane?", YAVHLIX, ADVANCEMENT)
-    smart_add_rule(world, "Is It a Balloon?", HELLCRAGS | LO_DAHR, ADVANCEMENT)
-    smart_add_rule(world, "Is It a Bird?", LORAHN_KAHL | BLACK_JUNGLE | LO_DAHR, ADVANCEMENT)
+    smart_add_rule(world, "Is It a Plane?", YAVHLIX & LO_DAHR, ADVANCEMENT)
+    smart_add_rule(world, "Is It a Balloon?", LO_DAHR, ADVANCEMENT)
+    smart_add_rule(world, "Is It a Bird?", LO_DAHR, ADVANCEMENT)
     smart_add_rule(world, "Hired Help", CRAFT_STONE_TOOLS & CAN_COMPACT, ADVANCEMENT)
     smart_add_rule(world, "Soulgrafting", CAN_SUMMON_WITHER, ADVANCEMENT_HARD)
     smart_add_rule(world, "Tactical Fishing", CRAFT_BUCKET, ADVANCEMENT)
     # Best Friends Forever is always sphere 1
     smart_add_rule(world, "Postmortal", LO_DAHR, ADVANCEMENT)
     smart_add_rule(world, "What a Deal!", CAN_TRADE, ADVANCEMENT)
-    smart_add_rule(world, "Two Birds, One Arrow", CRAFT_CROSSBOW & (CARMINE | LO_DAHR), ADVANCEMENT_HARD)
-    smart_add_rule(world, "No Place Like Home", CHESTS, ADVANCEMENT)
+    smart_add_rule(world, "Two Birds, One Arrow", CRAFT_CROSSBOW & (CARMINE | LO_DAHR) & CAN_ENCHANT, ADVANCEMENT_HARD)
+    smart_add_rule(world, "No Place Like Home", CHESTS & (MERIJOOL | PURITY_PEAKS | LO_DAHR), ADVANCEMENT)
     smart_add_rule(world, "Voluntary Exile", BLACK_JUNGLE, ADVANCEMENT)
-    smart_add_rule(world, "Light as a Rabbit", CRAFT_LEATHER_ARMOR, ADVANCEMENT)
+    smart_add_rule(world, "Light as a Rabbit", CRAFT_LEATHER_ARMOR & FAEHRCYLE, ADVANCEMENT)
     smart_add_rule(world, "Who's the Mikhmari Now?", CRAFT_CROSSBOW & BLACK_JUNGLE, ADVANCEMENT)
 
     smart_add_rule(world, "Crazy Dragon Lady", LO_DAHR, ADVANCEMENT_UNREASONABLE)

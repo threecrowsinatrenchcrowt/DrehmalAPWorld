@@ -9,6 +9,9 @@ from worlds.drehmal.region.drehmal.drehmal_regions import create_drehmal_regions
 from worlds.drehmal.region.drehmal.devotion_regions import create_devotion_regions
 from worlds.drehmal.logic.vanilla_logic import *
 
+from rule_builder.options import OptionFilter
+from rule_builder.rules import Has, HasAll, HasFromList, Rule, CanReachRegion, True_
+
 if TYPE_CHECKING:
    from worlds.drehmal import FabricMinecraftWorld
 
@@ -18,7 +21,7 @@ def get_goal_condition(world: FabricMinecraftWorld):
     if goal_id == 0: # Ender Dragon
         return TETHLAEN
     elif goal_id == 1: # Ruby Hunt
-        return PLACEHOLDER
+        return RUBY_HUNT
     
     return PLACEHOLDER
 

@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING
 
 from rule_builder.options import OptionFilter
 from rule_builder.rules import Has, HasAll, HasFromList, Rule, CanReachRegion, True_
+from rule_builder.field_resolvers import FromWorldAttr
 
 from worlds.drehmal.options import *
 
@@ -96,8 +97,6 @@ FRENZY = SAHD & ((HasFromList("Fragment of Fury", "Fragment of Hate", "Fragment 
 
 CRAFT_STONE_TOOLS = Has("Progressive Tools", count=1, options=[OptionFilter(RandomizedAbilities, "Tools", operator="contains")], filtered_resolution=True)
 CRAFT_DIAMOND_TOOLS = Has("Progressive Tools", count=3, options=[OptionFilter(RandomizedAbilities, "Tools", operator="contains")], filtered_resolution=True)
-CRAFT_NETHERITE_ARMOR = Has("Progressive Armor", count=5, options=[OptionFilter(RandomizedAbilities, "Armor", operator="contains")], filtered_resolution=True) & CRAFT_DIAMOND_TOOLS & LO_DAHR
-CRAFT_NETHERITE_TOOLS = Has("Progressive Tools", count=4, options=[OptionFilter(RandomizedAbilities, "Tools", operator="contains")], filtered_resolution=True) & LO_DAHR
 
 CAN_ENCHANT = Has("Enchanting", options=[OptionFilter(RandomizedAbilities, "Enchanting", operator="contains")], filtered_resolution=True) & CRAFT_IRON_TOOLS
 CAN_BREW = Has("Brewing", options=[OptionFilter(RandomizedAbilities, "Brewing", operator="contains")], filtered_resolution=True)
@@ -107,6 +106,10 @@ CAN_BARTER = Has("Piglin Bartering", options=[OptionFilter(RandomizedAbilities, 
 CAN_SLEEP = Has("Sleeping", options=[OptionFilter(RandomizedAbilities, "Spawn_Point", operator="contains")], filtered_resolution=True)
 CAN_COMPACT =  Has("Resource Compacting Recipes", options=[OptionFilter(RandomizedAbilities, "Compacting", operator="contains")], filtered_resolution=True)
 
+CRAFT_NETHERITE_ARMOR = Has("Progressive Armor", count=5, options=[OptionFilter(RandomizedAbilities, "Armor", operator="contains")], filtered_resolution=True) & CRAFT_DIAMOND_TOOLS & LO_DAHR & CAN_SMELT
+CRAFT_NETHERITE_TOOLS = Has("Progressive Tools", count=4, options=[OptionFilter(RandomizedAbilities, "Tools", operator="contains")], filtered_resolution=True) & LO_DAHR & CAN_SMELT
+
+
 CRAFT_LEATHER_ARMOR = Has("Progressive Armor", options=[OptionFilter(RandomizedAbilities, "Armor", operator="contains")], filtered_resolution=True)
 
 CRAFT_CROSSBOW = Has("Progressive Archery", count=2, options=[OptionFilter(RandomizedAbilities, "Archery", operator="contains")], filtered_resolution=True)
@@ -115,7 +118,7 @@ CRAFT_FISHING_ROD = Has("Fishing Rod Recipes", options=[OptionFilter(RandomizedA
 
 CAN_SUMMON_WITHER = LO_DAHR & HARD_COMBAT_MANUAL_LOCK & Has("Wither Summoning", options=[OptionFilter(RandomizedAbilities, "Wither_Summoning", operator="contains")], filtered_resolution=True)
 
-
+RUBY_HUNT = Has("Ruby", count=FromWorldAttr("max_ruby_count"))
 
 def canGoalEnderDragon(world: FabricMinecraftWorld, state: CollectionState):
     return True
