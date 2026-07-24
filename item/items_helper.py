@@ -3,11 +3,11 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Optional
 
 from BaseClasses import Item, ItemClassification
-from worlds.drehmal.item.item_manager import UnprocessedMinecraftItem, ProcessedMinecraftItem
-from worlds.drehmal.item.minecraft_items import get_all_items
+from .item_manager import UnprocessedMinecraftItem, ProcessedMinecraftItem
+from .minecraft_items import get_all_items
 
 if TYPE_CHECKING:
-   from worlds.drehmal import FabricMinecraftWorld
+   from .. import FabricMinecraftWorld
 
 
 # Gets all the items, and creates a dictionary for them

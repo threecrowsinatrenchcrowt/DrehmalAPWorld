@@ -2,11 +2,11 @@ from typing import Mapping, Any
 
 from BaseClasses import ItemClassification, Item
 from worlds.AutoWorld import World, WebWorld
-from worlds.drehmal.item.items_helper import item_table
-from worlds.drehmal.item.items_init import create_local_fill_items, create_items
-from worlds.drehmal.location.minecraft_locations import location_table
-from worlds.drehmal.options import FMCOptions
-from worlds.drehmal.region.regions_init import create_regions
+from .item.items_helper import item_table
+from .item.items_init import create_local_fill_items, create_items
+from .location.minecraft_locations import location_table
+from .options import FMCOptions
+from .region.regions_init import create_regions
 
 
 class FMCWebWorld(WebWorld):

@@ -8,10 +8,10 @@ from rule_builder.options import OptionFilter
 from rule_builder.rules import Has, HasAll, HasFromList, Rule, CanReachRegion, True_
 from rule_builder.field_resolvers import FromWorldAttr
 
-from worlds.drehmal.options import *
+from ..options import *
 
 if TYPE_CHECKING:
-   from worlds.drehmal import FabricMinecraftWorld
+   from .. import FabricMinecraftWorld
 
 PLACEHOLDER = True_()
 

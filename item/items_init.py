@@ -5,13 +5,13 @@ from typing import TYPE_CHECKING, Optional, List
 
 from BaseClasses import Location
 from Options import OptionError
-from worlds.drehmal.item.items_helper import add_item_to_pool, add_items_to_pool, get_progression_bl_items, \
+from .items_helper import add_item_to_pool, add_items_to_pool, get_progression_bl_items, \
     create_item, get_junk_items, get_item, add_optional_item, add_optional_items_to_pool, get_blank_filler
-from worlds.drehmal.item.item_manager import ProcessedMinecraftItem
-from worlds.drehmal.item.items.drehmal_items import *
+from .item_manager import ProcessedMinecraftItem
+from .items.drehmal_items import *
 
 if TYPE_CHECKING:
-   from worlds.drehmal import FabricMinecraftWorld
+   from .. import FabricMinecraftWorld
 
 
 # Creates all Items in the Item Pools in the Randomizer

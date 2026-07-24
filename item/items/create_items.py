@@ -1,4 +1,4 @@
-from worlds.drehmal.item.item_manager import needed_bl_modded
+from ..item_manager import needed_bl_modded
 
 create_items = [
     needed_bl_modded("Water Wheels", "create"),

@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from worlds.drehmal.item.items.create_items import create_items
-from worlds.drehmal.item.items.vanilla_items import vanilla_items
-from worlds.drehmal.item.items.drehmal_items import *
+from .items.create_items import create_items
+from .items.vanilla_items import vanilla_items
+from .items.drehmal_items import *
 
 
 ########################################################################################################################

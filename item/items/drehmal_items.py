@@ -1,4 +1,4 @@
-from worlds.drehmal.item.item_manager import needed, useful_unique, filler, trap, needed_bl, blank_filler
+from ..item_manager import needed, useful_unique, filler, trap, needed_bl, blank_filler
 
 drehmal_mythicals = [
     useful_unique("Ascendance"),

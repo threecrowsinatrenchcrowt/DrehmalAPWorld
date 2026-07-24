@@ -3,13 +3,13 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Optional
 
-from worlds.drehmal.region.mc_regions_consts import *
-from worlds.drehmal.region.regions_helper import create_locations_and_connect, smart_add_rule
-from worlds.drehmal.logic.vanilla_logic import *
+from ..mc_regions_consts import *
+from ..regions_helper import create_locations_and_connect, smart_add_rule
+from ...logic.vanilla_logic import *
 
 
 if TYPE_CHECKING:
-   from worlds.drehmal import FabricMinecraftWorld
+   from ... import FabricMinecraftWorld
 
 
 def create_vanilla_advancement_regions(world: FabricMinecraftWorld):

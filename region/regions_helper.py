@@ -6,15 +6,15 @@ from typing import TYPE_CHECKING, Optional
 from rule_builder.options import OptionFilter
 from rule_builder.rules import Has, HasAll, Rule
 
-from worlds.drehmal.logic.vanilla_logic import *
-from worlds.drehmal.region.mc_regions_consts import *
+from ..logic.vanilla_logic import *
+from .mc_regions_consts import *
 
 if TYPE_CHECKING:
-   from worlds.drehmal import FabricMinecraftWorld
+   from .. import FabricMinecraftWorld
 
 
 from BaseClasses import Region, Location, CollectionState, Entrance
-from worlds.drehmal.location.minecraft_locations import location_table
+from ..location.minecraft_locations import location_table
 
 # HELPER METHODS #######################################################################################################
 

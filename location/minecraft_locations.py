@@ -1,10 +1,10 @@
-from worlds.drehmal.location.vanilla.vanilla_advancements import vanilla_advancements
+from .vanilla.vanilla_advancements import vanilla_advancements
 
-from worlds.drehmal.location.drehmal.drehmal_mythicals import drehmal_mythicals
-from worlds.drehmal.location.drehmal.drehmal_legendaries import drehmal_legendaries
-from worlds.drehmal.location.drehmal.drehmal_terminus_towers import drehmal_terminus_towers
-from worlds.drehmal.location.drehmal.drehmal_quest_items import drehmal_quest_items
-from worlds.drehmal.location.drehmal.drehmal_relics import drehmal_relics
+from .drehmal.drehmal_mythicals import drehmal_mythicals
+from .drehmal.drehmal_legendaries import drehmal_legendaries
+from .drehmal.drehmal_terminus_towers import drehmal_terminus_towers
+from .drehmal.drehmal_quest_items import drehmal_quest_items
+from .drehmal.drehmal_relics import drehmal_relics
 
 ########################################################################################################################
 # ALL LOCATIONS IN RANDOMIZER ##########################################################################################

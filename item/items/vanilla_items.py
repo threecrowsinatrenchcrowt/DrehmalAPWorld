@@ -1,4 +1,4 @@
-from worlds.drehmal.item.item_manager import needed, useful, filler, trap, needed_bl, blank_filler
+from ..item_manager import needed, useful, filler, trap, needed_bl, blank_filler
 
 vanilla_items = [
     # PROGRESSION ######################################################################################################
