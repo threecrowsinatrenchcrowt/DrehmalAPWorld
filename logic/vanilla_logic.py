@@ -63,7 +63,7 @@ HARD_COMBAT_MANUAL_LOCK = JUMP & SPRINT & CRAFT_BOW & CRAFT_DIAMOND_ARMOR & CRAF
 YES_QUEST_ITEMS = [OptionFilter(RandomizedQuestItems, True)]
 NO_QUEST_ITEMS = [OptionFilter(RandomizedQuestItems, False)]
 
-LO_DAHR = (Has("Lo'Dahr Tower") & (AV_SAL | FAEHRCYLE | GRAND_PIKE_CANYON | MERIJOOL | SOUTH_THARXAX | BLACK_JUNGLE | HELLCRAGS)) | NOT_REGION_LOCK
+LO_DAHR = (Has("Lo'Dahr Tower") & (AV_SAL | FAEHRCYLE | SPEARHEAD_FOREST | MERIJOOL | NIMAHJ_SWAMP | BLACK_JUNGLE | HELLCRAGS)) | NOT_REGION_LOCK
 CAN_DO_MYTHBREAKER_RUN = Has("Inert Mythbreaker") & LO_DAHR & FAEHRCYLE & JUMP & SPRINT
 YAVHLIX = CAN_DO_MYTHBREAKER_RUN | Has("Yavhlix Tower")
 TETHLAEN = YAVHLIX & HARD_COMBAT_MANUAL_LOCK & (HasFromList("Yavhlix Lever 1", "Yavhlix Lever 2", "Yavhlix Lever 3", "Duplicate Yavhlix Lever", count=3) | NO_QUEST_ITEMS)
@@ -75,14 +75,14 @@ OPEN_WORLD = PALISADES_HEATH & AV_SAL & GULF_OF_DREHMAL & MERIJOOL & CASAI & ANY
 TEMPORAL_ENGINE = PURITY_PEAKS
 LEFT_BLADE_FRAG = TEMPORAL_ENGINE & JUMP & SPRINT
 
-EXODUS_ENTRY = NIMAHJ_SWAMP
+EXODUS_ENTRY = ANYR_NOGUR
 RIGHT_BLADE_FRAG = EXODUS_ENTRY & SWIM & SPRINT 
 
 INERT_MB = AV_SAL & ((Has("Left Blade Fragment") & Has("Right Blade Fragment") & YES_QUEST_ITEMS) | (LEFT_BLADE_FRAG & RIGHT_BLADE_FRAG & NO_QUEST_ITEMS))
 
 CRAFT_TNT = Has("TNT Recipes", options=[OptionFilter(RandomizedAbilities, "TNT", operator="contains")], filtered_resolution=True)
 
-FOUNDRY_ENTRY = (HasFromList("Foundry Lever 1", "Foundry Lever 2", "Foundry Lever 3", count=3) & YES_QUEST_ITEMS) | (EBONFIRE & EBONY_VELDT & ANYR_NOGUR & NO_QUEST_ITEMS)
+FOUNDRY_ENTRY = (HasFromList("Foundry Lever 1", "Foundry Lever 2", "Foundry Lever 3", count=3) & YES_QUEST_ITEMS) | (ANYR_NOGUR & NO_QUEST_ITEMS)
 
 YES_LEGENDARIES = [OptionFilter(RandomizedLegendaries, True)]
 NO_LEGENDARIES = [OptionFilter(RandomizedLegendaries, False)]
@@ -119,6 +119,115 @@ CRAFT_FISHING_ROD = Has("Fishing Rod Recipes", options=[OptionFilter(RandomizedA
 CAN_SUMMON_WITHER = LO_DAHR & HARD_COMBAT_MANUAL_LOCK & Has("Wither Summoning", options=[OptionFilter(RandomizedAbilities, "Wither_Summoning", operator="contains")], filtered_resolution=True)
 
 RUBY_HUNT = Has("Ruby", count=FromWorldAttr("max_ruby_count"))
+
+YES_MYTHICALS = [OptionFilter(RandomizedMythicals, True)]
+NO_MYTHICALS = [OptionFilter(RandomizedMythicals, False)]
+
+HAS_SYZYGY = Has("Syzygy")
+SYZYGY_LOCATION = LO_DAHR & SWIM
+SYZYGY = ((HAS_SYZYGY & YES_MYTHICALS) | (SYZYGY_LOCATION & NO_MYTHICALS))
+
+LOW_TOWER_COUNT = HasFromList(
+    "Palisades Heath Tower",
+    "Av'Sal Tower",
+    "Gulf of Drehmal Tower",
+    "Merijool Tower",
+    "Casai Tower",
+    "Mt. Ebonfire Tower",
+    "Ebony Veldt Tower",
+    "Nimahj Swamp Tower",
+    "Anyr'Nogur Tower",
+    "North Tharxax Tower",
+    "Lorahn'Kahl Tower",
+    "South Tharxax Tower",
+    "Carmine Tower",
+    "Hellcrags Tower",
+    "Akhlo'Rohma Tower",
+    "Purity Peaks Tower",
+    "North Heartwood Tower",
+    "South Heartwood Tower",
+    "Black Jungle Tower",
+    "Spearhead Forest Tower",
+    "Grand Pike Canyon Tower",
+    "Veruhkt Plateau Tower",
+    "Highfall Tundra Tower",
+    "Frozen Bite Tower",
+    "Faehrcyle Tower",
+    "Island of Dusk Tower",
+    "Island of Dawn Tower",
+    "Sahd Tower",
+    "Yavhlix Tower",
+    "Lo'Dahr Tower",
+    "Aphelion Tower",
+count = 4)
+
+MEDIUM_TOWER_COUNT = HasFromList(
+    "Palisades Heath Tower",
+    "Av'Sal Tower",
+    "Gulf of Drehmal Tower",
+    "Merijool Tower",
+    "Casai Tower",
+    "Mt. Ebonfire Tower",
+    "Ebony Veldt Tower",
+    "Nimahj Swamp Tower",
+    "Anyr'Nogur Tower",
+    "North Tharxax Tower",
+    "Lorahn'Kahl Tower",
+    "South Tharxax Tower",
+    "Carmine Tower",
+    "Hellcrags Tower",
+    "Akhlo'Rohma Tower",
+    "Purity Peaks Tower",
+    "North Heartwood Tower",
+    "South Heartwood Tower",
+    "Black Jungle Tower",
+    "Spearhead Forest Tower",
+    "Grand Pike Canyon Tower",
+    "Veruhkt Plateau Tower",
+    "Highfall Tundra Tower",
+    "Frozen Bite Tower",
+    "Faehrcyle Tower",
+    "Island of Dusk Tower",
+    "Island of Dawn Tower",
+    "Sahd Tower",
+    "Yavhlix Tower",
+    "Lo'Dahr Tower",
+    "Aphelion Tower",
+count = 12)
+
+HIGH_TOWER_COUNT = HasFromList(
+    "Palisades Heath Tower",
+    "Av'Sal Tower",
+    "Gulf of Drehmal Tower",
+    "Merijool Tower",
+    "Casai Tower",
+    "Mt. Ebonfire Tower",
+    "Ebony Veldt Tower",
+    "Nimahj Swamp Tower",
+    "Anyr'Nogur Tower",
+    "North Tharxax Tower",
+    "Lorahn'Kahl Tower",
+    "South Tharxax Tower",
+    "Carmine Tower",
+    "Hellcrags Tower",
+    "Akhlo'Rohma Tower",
+    "Purity Peaks Tower",
+    "North Heartwood Tower",
+    "South Heartwood Tower",
+    "Black Jungle Tower",
+    "Spearhead Forest Tower",
+    "Grand Pike Canyon Tower",
+    "Veruhkt Plateau Tower",
+    "Highfall Tundra Tower",
+    "Frozen Bite Tower",
+    "Faehrcyle Tower",
+    "Island of Dusk Tower",
+    "Island of Dawn Tower",
+    "Sahd Tower",
+    "Yavhlix Tower",
+    "Lo'Dahr Tower",
+    "Aphelion Tower",
+count = 20)
 
 def canGoalEnderDragon(world: FabricMinecraftWorld, state: CollectionState):
     return True

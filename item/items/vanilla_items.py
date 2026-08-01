@@ -117,6 +117,15 @@ vanilla_items = [
     filler("Strong Potion of Harming"),
     # Misc
     filler("Random Dye"),
+    filler("Bundle"),
+    filler("Runic Vessel"),
+    filler("Divine Baubles"),
+    filler("1 Runic Catalyst"),
+    filler("2 Runic Catalysts"),
+    filler("4 Runic Catalysts"),
+    filler("8 Runic Catalysts"),
+    filler("Runic Amplifier"),
+    filler("Aurastaff of Permafrost"),
     # BLANK FILLER #####################################################################################################
     blank_filler("Air"),
     blank_filler("Cave Air"),

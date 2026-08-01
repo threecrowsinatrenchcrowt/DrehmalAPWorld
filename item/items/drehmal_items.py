@@ -8,7 +8,7 @@ drehmal_mythicals = [
     needed("Inert Mythbreaker"),
     useful_unique("True Mythbreaker"),
     useful_unique("Oblivion"),
-    useful_unique("Syzygy"),
+    needed("Syzygy"),
     useful_unique("Zenith")
 ]
 

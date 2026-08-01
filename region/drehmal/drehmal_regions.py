@@ -35,6 +35,7 @@ def create_drehmal_regions(world: FabricMinecraftWorld):
         "Village of Autumn": ADVANCEMENT_EXPLORATION,
         "Glade of the Giant": ADVANCEMENT_EXPLORATION,
         "Ash Heap": ADVANCEMENT_EXPLORATION,
+        "Wall of the West": ADVANCEMENT_EXPLORATION,
 
         "Parenchyma": LEGENDARIES,
         "Whispersong": LEGENDARIES,
@@ -59,25 +60,30 @@ def create_drehmal_regions(world: FabricMinecraftWorld):
          "Zarha Ruins Stone of Luxury": QUEST_ITEMS
     }, CASAI)
     smart_add_rule(world,"Ultva's Bowblade", CHESTS, LEGENDARIES)
-    smart_add_rule(world, "Zarha Ruins Stone of Luxury", CHESTS & EBONFIRE, QUEST_ITEMS)
+    smart_add_rule(world, "Zarha Ruins Stone of Luxury", CHESTS, QUEST_ITEMS)
 
     create_locations_and_connect(world, "Menu", "AnyrNogur", {
         "The Foundry": ADVANCEMENT_EXPLORATION,
         "Rip & Tear": ADVANCEMENT_EXPLORATION,
         "Supersoldier Certification": ADVANCEMENT_EXPLORATION,
         "Capital of War": ADVANCEMENT_EXPLORATION,
+        "All That Remains": ADVANCEMENT_EXPLORATION,
         
         "Zenith": MYTHICALS,
 
         "Emperor Anyr's Scepter": LEGENDARIES,
         "Warp Horse Armor": LEGENDARIES,
-        "Warp Horse Receiver": LEGENDARIES,
+        "Warp Horse Receiver": LEGENDARIES,        
+        "Voidtear Dagger": LEGENDARIES,
 
         "Anyr'Nogur Tower": TERMINUS_TOWERS,
 
+        "Right Blade Fragment": QUEST_ITEMS,
         "Foundry Speedrun Stone of Luxury": QUEST_ITEMS,
         "Tall Tower Stone of Worry": QUEST_ITEMS,
         "Tank Keyfob": QUEST_ITEMS,
+        "Foundry Lever 1": QUEST_ITEMS,
+        "Foundry Lever 2": QUEST_ITEMS,
         "Foundry Lever 3": QUEST_ITEMS
     }, ANYR_NOGUR)
     smart_add_rule(world,"Rip & Tear", FOUNDRY_ENTRY, ADVANCEMENT_EXPLORATION)
@@ -86,33 +92,24 @@ def create_drehmal_regions(world: FabricMinecraftWorld):
     smart_add_rule(world,"Emperor Anyr's Scepter", CHESTS, LEGENDARIES)
     smart_add_rule(world,"Warp Horse Armor", CHESTS & RIGHT_BLADE_FRAG, LEGENDARIES)
     smart_add_rule(world,"Warp Horse Receiver", CHESTS & RIGHT_BLADE_FRAG, LEGENDARIES)
+    smart_add_rule(world,"Voidtear Dagger", EXODUS_ENTRY & SWIM, LEGENDARIES)
+    smart_add_rule(world, "Right Blade Fragment", RIGHT_BLADE_FRAG, QUEST_ITEMS)
     smart_add_rule(world, "Foundry Speedrun Stone of Luxury", FOUNDRY_ENTRY & HARD_COMBAT_MANUAL_LOCK & OPEN_WORLD, QUEST_ITEMS)
     smart_add_rule(world, "Tall Tower Stone of Worry", CHESTS, QUEST_ITEMS)
     smart_add_rule(world, "Tank Keyfob", CHESTS & RIGHT_BLADE_FRAG, QUEST_ITEMS)
 
     create_locations_and_connect(world, "Menu", "Ebonfire", {
         "Children of Mael": ADVANCEMENT_EXPLORATION,
-        "Wall of the West": ADVANCEMENT_EXPLORATION,
 
         "Flammer": LEGENDARIES,
 
-        "Mt. Ebonfire Tower": TERMINUS_TOWERS,
-
-        "Foundry Lever 1": QUEST_ITEMS
+        "Mt. Ebonfire Tower": TERMINUS_TOWERS
     }, EBONFIRE)
     smart_add_rule(world,"Flammer", CHESTS, LEGENDARIES)
 
     create_locations_and_connect(world, "Menu", "NimahjSwamp", {
-        "All That Remains": ADVANCEMENT_EXPLORATION,
-
-        "Voidtear Dagger": LEGENDARIES,
-
-        "Nimahj Swamp Tower": TERMINUS_TOWERS,
-
-        "Right Blade Fragment": QUEST_ITEMS
+        "Nimahj Swamp Tower": TERMINUS_TOWERS
     }, NIMAHJ_SWAMP)
-    smart_add_rule(world,"Voidtear Dagger", EXODUS_ENTRY & SWIM, LEGENDARIES)
-    smart_add_rule(world, "Right Blade Fragment", RIGHT_BLADE_FRAG, QUEST_ITEMS)
 
     create_locations_and_connect(world, "Menu", "EbonyVeldt", {
         "Underground Fortress": ADVANCEMENT_EXPLORATION,
@@ -121,8 +118,7 @@ def create_drehmal_regions(world: FabricMinecraftWorld):
 
         "Ebony Veldt Tower": TERMINUS_TOWERS,
 
-        "Caer Adacia Stone of Worry": QUEST_ITEMS,
-        "Foundry Lever 2": QUEST_ITEMS
+        "Caer Adacia Stone of Worry": QUEST_ITEMS
     }, EBONY_VELDT)
     smart_add_rule(world,"Penumbra", CHESTS, LEGENDARIES)
 
@@ -227,7 +223,7 @@ def create_drehmal_regions(world: FabricMinecraftWorld):
     }, PURITY_PEAKS)
     smart_add_rule(world, "Avsohm'Kohl", JUMP & SPRINT & CHESTS, LEGENDARIES)
     smart_add_rule(world, "Left Blade Fragment", LEFT_BLADE_FRAG, QUEST_ITEMS)
-    smart_add_rule(world, "Tehrmari Monastery Stone of Luxury", CHESTS & GRAND_PIKE_CANYON, QUEST_ITEMS)
+    smart_add_rule(world, "Tehrmari Monastery Stone of Luxury", CHESTS, QUEST_ITEMS)
 
     create_locations_and_connect(world, "Menu", "MaelsDesolation", {
         "This place was beautiful, once": ADVANCEMENT_EXPLORATION,
@@ -325,23 +321,23 @@ def create_drehmal_regions(world: FabricMinecraftWorld):
 
         "Faehrcyle Tower": TERMINUS_TOWERS,
 
-        "Oblivion Labyrinth Stone of Worry": QUEST_ITEMS
+        "Oblivion Labyrinth Stone of Worry": QUEST_ITEMS,
+        "West of Yavhlix Stone of Agony": QUEST_ITEMS
     }, FAEHRCYLE)
     smart_add_rule(world, "Oblivion", OBLIVION_LABYRINTH, MYTHICALS)
     smart_add_rule(world, "The Frostfang", CHESTS, LEGENDARIES)
-    smart_add_rule(world, "Rehntite Plate Mail", CHESTS, LEGENDARIES)
+    smart_add_rule(world, "Rehntite Plate Mail", CHESTS & AKHLO_ROHMA, LEGENDARIES)
     smart_add_rule(world, "Oblivion Labyrinth Stone of Worry", CHESTS & OBLIVION_LABYRINTH, QUEST_ITEMS)
+    smart_add_rule(world, "West of Yavhlix Stone of Agony", CHESTS, QUEST_ITEMS)
 
     create_locations_and_connect(world, "Menu", "DawnIsland", {
         "Place of Conversion": ADVANCEMENT_EXPLORATION,
         
         "Island of Dawn Tower": TERMINUS_TOWERS,
 
-        "Xor'huul Stone of Agony": QUEST_ITEMS,
-        "West of Yavhlix Stone of Agony": QUEST_ITEMS
+        "Xor'huul Stone of Agony": QUEST_ITEMS
     }, DAWN_ISLAND)
     smart_add_rule(world, "Xor'huul Stone of Agony", CHESTS, QUEST_ITEMS)
-    smart_add_rule(world, "West of Yavhlix Stone of Agony", CHESTS & FAEHRCYLE, QUEST_ITEMS)
 
     create_locations_and_connect(world, "Menu", "DuskIsland", {
         "Crystal Digging Claws": LEGENDARIES,
