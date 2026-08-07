@@ -63,14 +63,9 @@ HARD_COMBAT_MANUAL_LOCK = JUMP & SPRINT & CRAFT_BOW & CRAFT_DIAMOND_ARMOR & CRAF
 YES_QUEST_ITEMS = [OptionFilter(RandomizedQuestItems, True)]
 NO_QUEST_ITEMS = [OptionFilter(RandomizedQuestItems, False)]
 
-LO_DAHR = (Has("Lo'Dahr Tower") & (AV_SAL | FAEHRCYLE | SPEARHEAD_FOREST | MERIJOOL | NIMAHJ_SWAMP | BLACK_JUNGLE | HELLCRAGS)) | NOT_REGION_LOCK
-CAN_DO_MYTHBREAKER_RUN = Has("Inert Mythbreaker") & LO_DAHR & FAEHRCYLE & JUMP & SPRINT
-YAVHLIX = CAN_DO_MYTHBREAKER_RUN | Has("Yavhlix Tower")
-TETHLAEN = YAVHLIX & HARD_COMBAT_MANUAL_LOCK & (HasFromList("Yavhlix Lever 1", "Yavhlix Lever 2", "Yavhlix Lever 3", "Duplicate Yavhlix Lever", count=3) | NO_QUEST_ITEMS)
 
-APHELION = (Has("Aphelion Tower") | NOT_REGION_LOCK) & AV_SAL
-
-OPEN_WORLD = PALISADES_HEATH & AV_SAL & GULF_OF_DREHMAL & MERIJOOL & CASAI & ANYR_NOGUR & EBONFIRE & NIMAHJ_SWAMP & EBONY_VELDT & LORAHN_KAHL & NORTH_THARXAX & SOUTH_THARXAX & CARMINE & HELLCRAGS & AKHLO_ROHMA & NORTH_HEARTWOOD & PURITY_PEAKS & MAELS_DESOLATION & SPEARHEAD_FOREST & BLACK_JUNGLE & GRAND_PIKE_CANYON & VERUHKT_PLATEAU & HIGHFALL_TUNDRA & FROZEN_BITE & FAEHRCYLE & DAWN_ISLAND & DUSK_ISLAND & SAHD & LO_DAHR & YAVHLIX
+YES_MYTHICALS = [OptionFilter(RandomizedMythicals, True)]
+NO_MYTHICALS = [OptionFilter(RandomizedMythicals, False)]
 
 TEMPORAL_ENGINE = PURITY_PEAKS
 LEFT_BLADE_FRAG = TEMPORAL_ENGINE & JUMP & SPRINT
@@ -79,6 +74,15 @@ EXODUS_ENTRY = ANYR_NOGUR
 RIGHT_BLADE_FRAG = EXODUS_ENTRY & SWIM & SPRINT 
 
 INERT_MB = AV_SAL & ((Has("Left Blade Fragment") & Has("Right Blade Fragment") & YES_QUEST_ITEMS) | (LEFT_BLADE_FRAG & RIGHT_BLADE_FRAG & NO_QUEST_ITEMS))
+
+LO_DAHR = (Has("Lo'Dahr Tower") & (AV_SAL | FAEHRCYLE | SPEARHEAD_FOREST | MERIJOOL | NIMAHJ_SWAMP | BLACK_JUNGLE | HELLCRAGS)) | NOT_REGION_LOCK
+CAN_DO_MYTHBREAKER_RUN = (Has("Inert Mythbreaker") | (NO_MYTHICALS & INERT_MB)) & LO_DAHR & FAEHRCYLE & JUMP & SPRINT
+YAVHLIX = CAN_DO_MYTHBREAKER_RUN | Has("Yavhlix Tower")
+TETHLAEN = YAVHLIX & HARD_COMBAT_MANUAL_LOCK & (HasFromList("Yavhlix Lever 1", "Yavhlix Lever 2", "Yavhlix Lever 3", "Duplicate Yavhlix Lever", count=3) | NO_QUEST_ITEMS)
+
+APHELION = (Has("Aphelion Tower") | NOT_REGION_LOCK) & AV_SAL
+
+OPEN_WORLD = PALISADES_HEATH & AV_SAL & GULF_OF_DREHMAL & MERIJOOL & CASAI & ANYR_NOGUR & EBONFIRE & NIMAHJ_SWAMP & EBONY_VELDT & LORAHN_KAHL & NORTH_THARXAX & SOUTH_THARXAX & CARMINE & HELLCRAGS & AKHLO_ROHMA & NORTH_HEARTWOOD & PURITY_PEAKS & MAELS_DESOLATION & SPEARHEAD_FOREST & BLACK_JUNGLE & GRAND_PIKE_CANYON & VERUHKT_PLATEAU & HIGHFALL_TUNDRA & FROZEN_BITE & FAEHRCYLE & DAWN_ISLAND & DUSK_ISLAND & SAHD & LO_DAHR & YAVHLIX
 
 CRAFT_TNT = Has("TNT Recipes", options=[OptionFilter(RandomizedAbilities, "TNT", operator="contains")], filtered_resolution=True)
 
@@ -120,9 +124,6 @@ CAN_SUMMON_WITHER = LO_DAHR & HARD_COMBAT_MANUAL_LOCK & Has("Wither Summoning", 
 
 RUBY_HUNT = Has("Ruby", count=FromWorldAttr("max_ruby_count"))
 
-YES_MYTHICALS = [OptionFilter(RandomizedMythicals, True)]
-NO_MYTHICALS = [OptionFilter(RandomizedMythicals, False)]
-
 HAS_SYZYGY = Has("Syzygy")
 SYZYGY_LOCATION = LO_DAHR & SWIM
 SYZYGY = ((HAS_SYZYGY & YES_MYTHICALS) | (SYZYGY_LOCATION & NO_MYTHICALS))
@@ -159,7 +160,7 @@ LOW_TOWER_COUNT = HasFromList(
     "Yavhlix Tower",
     "Lo'Dahr Tower",
     "Aphelion Tower",
-count = 4)
+count = 4) | NOT_REGION_LOCK
 
 MEDIUM_TOWER_COUNT = HasFromList(
     "Palisades Heath Tower",
@@ -193,7 +194,7 @@ MEDIUM_TOWER_COUNT = HasFromList(
     "Yavhlix Tower",
     "Lo'Dahr Tower",
     "Aphelion Tower",
-count = 12)
+count = 12) | NOT_REGION_LOCK
 
 HIGH_TOWER_COUNT = HasFromList(
     "Palisades Heath Tower",
@@ -227,7 +228,7 @@ HIGH_TOWER_COUNT = HasFromList(
     "Yavhlix Tower",
     "Lo'Dahr Tower",
     "Aphelion Tower",
-count = 20)
+count = 20) | NOT_REGION_LOCK
 
 def canGoalEnderDragon(world: FabricMinecraftWorld, state: CollectionState):
     return True

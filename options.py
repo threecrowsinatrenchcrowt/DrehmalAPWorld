@@ -13,7 +13,6 @@ class GoalCondition(Choice):
 
     ender_dragon - Goal when the Ender Dragon (Tethlaen) is defeated
     ruby_hunt - Goal when a certain amount of rubies are collected (McGuffin hunt)
-    Todo: Add Emissary goal option
     """
     option_ender_dragon = 0
     option_ruby_hunt = 1
@@ -54,9 +53,9 @@ class ExcludedAdvancementTypes(OptionSet):
 
     Options:
         "Normal" - Disables regular advancements
-        "Hard" - Disables advancements that are Hard
+        "Hard" - Disables advancements that are hard or tedious
         "Exploration" - Disables advancements that are given for discovering a location
-        "Unreasonable" - Disables advancements that are EXTREMELY Hard
+        "Unreasonable" - Disables advancements that are EXTREMELY hard or tedious
     """
     display_name = "Excluded Locations"
     default = {
@@ -76,6 +75,11 @@ class RandomizedAbilities(OptionSet):
 
     These should be treated for now as unstable options
     Drehmal's logic for these, especially in strange combinations, is still very questionable
+
+    Valid options: "Chests", "Jump", "Sprint", "Swim", "Spawn_Point", "Wither_Summoning", "Trading",
+    "Bartering", "Brewing", "Enchanting", "Smithing", "Misc_Stations", "Bucket", "Igniter", 
+    "Minecarts", "Brush", "Spyglass", "Shears", "Ender_Eye", "Fishing", "Bottles", "Compacting",
+    "Shield", "Bundles", "TNT", "Tools", "Weapons", "Archery", "Armor", "Smelting", "Dyes"
     """
     display_name = "Ability Shuffle"
     default = {
@@ -141,7 +145,8 @@ class RandomizedTerminusTowers(Choice):
 class RandomizedQuestItems(Toggle):
     """
     Adds miscellaneous quest items from Drehmal to the item and location pool.
-    Fervor Stones, Frenzy Fragments, Left and Right Blade Fragments, Nihilist's Notes, Yavhlix Overrides
+    Fervor Stones, Frenzy Fragments, Left and Right Blade Fragments, 
+    Nihilist's Notes, Yavhlix Overrides, Foundry Levers
     """
 
 class RandomizedRelics(Toggle):
@@ -151,7 +156,8 @@ class RandomizedRelics(Toggle):
 
 class ScoutTediousLocations(Toggle):
     """
-    Automatically sends hints for tedious locations, including devotion relics and items locked behind clearing the Foundry
+    Automatically sends hints for tedious locations, including devotion relics,
+    items locked behind clearing the Foundry, and boss rewards
     """ 
 
 ########################################################################################################################
